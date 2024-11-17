@@ -1,7 +1,8 @@
 # Mealy Machine Notes 1
 
-2024-11-15  
-Sergei M  
+Author: Sergei M  
+Created: 2024-11-15  
+Last Updated: 2024-11-15  
 
 
 
@@ -33,13 +34,13 @@ Outpute can change immediately in respnse to input.
 Output values are determined by both current state AND current inputs.  
 Only up to 1 transition is possible (Transition >= 1).  
 
-A mealy machine has 6 tuples: (Q, q0, ∑, O, δ, λ)
+A mealy machine has 6 tuples: (Q, q0, ∑, Δ, δ, λ)
 - **Q** is a finite set of states 
 - **q0** is the initial state, which is an element of **Q**
 - **∑** is the input alphabet (finite set).
-- **O** is the output alphabet (finite set).
+- **Δ** is the output alphabet (finite set).
 - **δ : Q * ∑ ==> Q** is a transition function which maps the pairs of a state and an input symbol to the corresponding next state.
-- **λ : Q * ∑ ==> O** is an output function that maps the pairs of a state and an input symbol to the corresponding output symbol.
+- **λ : Q * ∑ ==> Δ** is an output function that maps the pairs of a state and an input symbol to the corresponding output symbol.
 
 Sometimes the functions are combined into a single function: δ : Q * ∑ ==> Q * λ  
 
@@ -67,23 +68,37 @@ bit 9 = 2^9 = 512
 
 
 ### Mealy Machine Binary Modulo 3
-Binary division by 3  
+Binary division by modulo 3  
 Inputs: 0 or 1  
 Is output divisible by 3? (remainder is 0)  
 
 Transition rules: transitions (go to) will depend on input and current state.  
 
-State 0:
+1  
+State 0:  
 - If input == 0, remainder does not change (stay in state 0)
 - If input == 1, remainder becomes 1 (go to state 1)
 
-State 1: 
+State 1:  
 - If input == 0, remainder becomes 2 (go to state 2)
 - If input == 1, remainder becomes 0 (go to state 0)
 
-State 2: 
+State 2:  
 - If input == 0, remainder becomes 1 (go to state 1)
 - If input == 1, remainder becomes 2 (go to state 2)
+
+2  
+State 0:  
+- On input == 0, next state == 0, output == 1.
+- On input == 1, next state == 1, output == 0.
+
+State 1: 
+- On input == 0, next state == 2, output == 0.
+- On input == 1, next state == 0, output == 0.
+
+State 2: 
+- On input == 0, next state == 1, output == 0.
+- On input == 1, next state == 2, output == 0.
 
 Output == 1 when input is divisible by 3 (when state is 0), otherwise output == 0  
 
@@ -97,5 +112,26 @@ Mealy Machine Table:
 | 2 | 0 | 1 | 0 |
 | 2 | 1 | 2 | 0 |
 
+### State Diagram Notes
+Bubble/circle is a state
+Arrows indicate state transition
+**X/Y**, 0/0, 0/1, 1/0, 1/1
+**X** input leading to state transition
+**Y** output of the input
 
 
+
+<!---
+### MISC
+subscript a<sub>1</sub>
+lambda &#955; λ
+sigma &#931; ∑
+delta δ Δ
+
+
+prompt eng
+zero shot
+single shot
+tree modals
+chain of thought
+-->

@@ -1,6 +1,7 @@
-# 2024-11-15
 # Sergei Mochalov
-# Mealy finite state machine to determine if a binary number is divisible by 3
+# Created: 2024-11-15
+# Last modified: 2024-11-16
+# Functional implementation of the Mealy finite state machine to determine if a binary number is divisible by 3
 
 
 # Mealy FSM implementation
@@ -25,10 +26,6 @@ def mealy_fsm_mod3(bin_val):
     return state
 
 
-
-
-
-
 # Convert binary number into decimal (there is probably a more efficient way to do this)
 def bin_to_dec(bin_val):
     decimal_total = 0
@@ -38,7 +35,6 @@ def bin_to_dec(bin_val):
             decimal_total +=  2 ** (loop_count)
         loop_count += 1
     return decimal_total
-
 
 
 
@@ -56,10 +52,6 @@ if output == 0:
     print("The binary number is divisible by 3")
 else:
     print("The binary number is not divisible by 3")
-
-
-
-
 
 
 
